@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Experimenting Ckeditor Skins and Plugins</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="node_modules/ckeditor4/ckeditor.js"></script>
+    </head>
+    <body>
+        <form>
+            <textarea name="editor1" id="editor1" rows="10" cols="80">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/4DE47Z_sAkw?start=7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                <br />
+            </textarea>
+            <script>     
+                CKEDITOR.plugins.addExternal('youtube', 'plugins/ckeditor-youtube-plugin/youtube/');       
+                CKEDITOR.replace( 'editor1', {
+                    language: 'es',
+                    skin: 'atlas,skins/atlas/',
+                    extraPlugins: 'youtube',
+                });
+                $(function(){
+                    function delay(){
+                            $("#cke_1_contents").css("height" , "800px");
+                    };
+                    window.setTimeout( delay, 1000 );
+                });
+            </script>
+        </form>
+    </body>
+</html>

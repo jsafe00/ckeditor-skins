@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Experimenting Ckeditor Skins and Plugins</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="node_modules/ckeditor4/ckeditor.js"></script>
+    </head>
+    <body>
+        <form>
+            <textarea name="editor1" id="editor1" rows="10" cols="80">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/5xSOIue8FHKMFSw4E05zMM?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>            </textarea>
+            <script>     
+                CKEDITOR.plugins.addExternal('youtube', 'plugins/ckeditor-youtube-plugin/youtube/');       
+                CKEDITOR.replace( 'editor1', {
+                    language: 'es',
+                    skin: 'bootstrapck,skins/bootstrapck/',
+                    extraPlugins: 'youtube',
+                });
+                $(function(){
+                    function delay(){
+                            $("#cke_1_contents").css("height" , "800px");
+                    };
+                    window.setTimeout( delay, 1000 );
+                });
+            </script>
+        </form>
+    </body>
+</html>
